@@ -16,5 +16,11 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v2
